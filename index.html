@@ -261,10 +261,7 @@
         }
         .service-card:hover::after { opacity: 0.5; }
         .service-icon {
-            width: 48px; height: 48px;
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.8rem; font-size: 1.2rem; color: var(--brass);
+            display: none;
         }
         .service-card h3 {
             font-size: 1.6rem; font-weight: 500; color: var(--cream);
@@ -284,11 +281,14 @@
             background: var(--green);
             overflow: hidden;
             position: relative;
+            display: grid;
+            grid-template-columns: 1fr 380px;
         }
         .featured-hero {
             position: relative;
-            height: 420px;
             overflow: hidden;
+            order: 2;
+            min-height: 100%;
         }
         .featured-hero img {
             width: 100%; height: 100%; object-fit: cover;
@@ -296,10 +296,11 @@
         .featured-hero::after {
             content: '';
             position: absolute; inset: 0;
-            background: linear-gradient(180deg, transparent 30%, rgba(26, 46, 30, 0.95) 100%);
+            background: linear-gradient(270deg, transparent 50%, rgba(26, 46, 30, 0.6) 100%);
         }
         .featured-hero-text {
             position: absolute; bottom: 2.5rem; left: 3rem; z-index: 2;
+            display: none;
         }
         .featured-badge {
             display: inline-block; width: fit-content;
@@ -321,6 +322,21 @@
         }
         .featured-body {
             padding: 2.5rem 3rem 3rem;
+            order: 1;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .featured-body .featured-title {
+            font-family: 'Jost', sans-serif;
+            font-size: 2.6rem; font-weight: 600; line-height: 1.1;
+            color: var(--cream); margin-bottom: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+        .featured-body .featured-location {
+            font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--brass-light); opacity: 0.8; margin-bottom: 1.5rem;
+        }
+        .featured-body .featured-badge {
+            margin-bottom: 1rem;
         }
         .featured-body p {
             font-size: 0.92rem; font-weight: 300; line-height: 1.85;
@@ -458,10 +474,10 @@
             .services { padding: 5rem 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
             .featured { padding: 5rem 1.5rem; }
-            .featured-hero { height: 280px; }
-            .featured-hero-text { left: 1.5rem; bottom: 1.5rem; }
-            .featured-hero-text h3 { font-size: 2rem; }
-            .featured-body { padding: 1.5rem; }
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-hero { height: 250px; order: 1; }
+            .featured-body { padding: 1.5rem; order: 2; }
+            .featured-body .featured-title { font-size: 2rem; }
             .featured-details { grid-template-columns: repeat(2, 1fr); }
             .featured-actions { flex-direction: column; }
             .contact { padding: 5rem 1.5rem; }
@@ -585,13 +601,11 @@
         <div class="featured-card reveal">
             <div class="featured-hero">
                 <img src="website photos/medewi-satellite.png" alt="Google Earth satellite view of Medewi Beach, Bali" loading="lazy">
-                <div class="featured-hero-text">
-                    <div class="featured-badge">For Sale - Freehold</div>
-                    <h3>Ocean-View Land</h3>
-                    <div class="featured-location">Medewi, Bali</div>
-                </div>
             </div>
             <div class="featured-body">
+                <div class="featured-badge">For Sale - Freehold</div>
+                <h3 class="featured-title">Ocean-View Land</h3>
+                <div class="featured-location">Medewi, Bali</div>
                 <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south.</p>
                 <div class="featured-details">
                     <div class="featured-detail">
