@@ -1,595 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prime Equity Group — Bali Real Estate | primeequitygroup.cc</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --green-deep:   #1a2e1e;
-      --green-mid:    #2d4a32;
-      --green-light:  #3d6142;
-      --brass:        #c9a84c;
-      --brass-light:  #e0c97a;
-      --brass-dim:    #9a7a32;
-      --cream:        #f5f0e8;
-      --white:        #fdfcf9;
-      --text-dark:    #1a2e1e;
-      --text-mid:     #4a5e4d;
-      --text-light:   #8a9e8d;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Equity Group — Bali Real Estate PMA</title>
+    <meta name="description" content="Prime Equity Group — acquiring, holding, and developing premium Bali real estate through a licensed PMA entity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --green: #1a2e1e;
+            --green-dark: #121f14;
+            --cream: #fdfcf9;
+            --brass: #c9a84c;
+            --brass-light: #d4b85e;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--green);
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.5rem 4rem;
-      background: transparent;
-      transition: background 0.4s, padding 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(26,46,30,0.96);
-      backdrop-filter: blur(12px);
-      padding: 1rem 4rem;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--cream);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--brass); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cream);
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.2s, color 0.2s;
-    }
-    .nav-links a:hover { opacity: 1; color: var(--brass-light); }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+        }
 
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      height: 100vh; min-height: 680px;
-      display: flex; align-items: flex-end;
-      background: var(--green-deep);
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 70% 40%, rgba(61,97,66,0.45) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.12) 0%, transparent 60%),
-        linear-gradient(160deg, #0e1c11 0%, #1a2e1e 40%, #243d28 100%);
-    }
-    /* botanical SVG overlay */
-    .hero-botanical {
-      position: absolute; right: -60px; top: -40px;
-      width: 620px; height: 620px;
-      opacity: 0.08;
-      pointer-events: none;
-    }
-    .hero-line {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--brass), transparent);
-      opacity: 0.4;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      padding: 0 4rem 6rem;
-      max-width: 820px;
-    }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block; width: 40px; height: 1px;
-      background: var(--brass);
-    }
-    .hero-eyebrow span {
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--brass);
-      font-weight: 400;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 7vw, 6rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--cream);
-      margin-bottom: 1.8rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--brass-light);
-    }
-    .hero-sub {
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      color: rgba(245,240,232,0.55);
-      line-height: 1.8;
-      max-width: 480px;
-      font-weight: 300;
-    }
-    .hero-cta {
-      margin-top: 2.8rem;
-      display: inline-flex; align-items: center; gap: 1rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--brass-light);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,168,76,0.35);
-      padding-bottom: 0.25rem;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hero-cta:hover { color: var(--brass); border-color: var(--brass); }
-    .hero-cta::after { content: '→'; font-size: 0.9rem; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    /* scroll indicator */
-    .scroll-hint {
-      position: absolute; bottom: 2.5rem; right: 4rem;
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      opacity: 0.4;
-    }
-    .scroll-hint span {
-      font-size: 0.6rem; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--cream);
-      writing-mode: vertical-rl;
-    }
-    .scroll-hint::after {
-      content: '';
-      display: block; width: 1px; height: 48px;
-      background: linear-gradient(to bottom, var(--brass), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 0.9; transform: scaleY(1.15); }
-    }
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+        }
 
-    /* ── INTRO BAND ── */
-    .band {
-      background: var(--brass);
-      padding: 1.1rem 4rem;
-      display: flex; align-items: center; justify-content: center; gap: 3rem;
-      overflow: hidden;
-    }
-    .band-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      white-space: nowrap;
-    }
-    .band-item span:first-child {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 600;
-      color: var(--green-deep);
-    }
-    .band-item span:last-child {
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green-deep);
-      opacity: 0.7;
-      max-width: 80px; line-height: 1.4;
-    }
-    .band-divider { width: 1px; height: 32px; background: rgba(26,46,30,0.25); }
+        .nav.scrolled {
+            background: var(--green);
+            padding: 1rem 4rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    /* ── SECTION BASE ── */
-    section { padding: 7rem 4rem; }
-    .section-eyebrow {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-    .section-eyebrow::before {
-      content: '';
-      display: block; width: 32px; height: 1px;
-      background: var(--brass);
-    }
-    .section-eyebrow span {
-      font-size: 0.68rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--brass-dim);
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300; line-height: 1.15;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-    }
-    .section-title em { font-style: italic; color: var(--green-mid); }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
 
-    /* ── ABOUT ── */
-    .about {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .about-text p {
-      font-size: 0.92rem; line-height: 1.95;
-      color: var(--text-mid); font-weight: 300;
-      margin-bottom: 1.2rem;
-    }
-    .about-text p strong {
-      color: var(--text-dark); font-weight: 500;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-card {
-      background: var(--green-deep);
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute; top: 0; right: 0;
-      width: 120px; height: 120px;
-      border-left: 1px solid rgba(201,168,76,0.2);
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-    }
-    .about-card-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 300; font-style: italic;
-      color: var(--cream); line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-    .about-card-names {
-      display: flex; flex-direction: column; gap: 0.25rem;
-    }
-    .about-card-names .name {
-      font-size: 0.8rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--brass);
-    }
-    .about-card-names .title {
-      font-size: 0.68rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(245,240,232,0.4);
-    }
-    .about-accent {
-      position: absolute; bottom: -1.5rem; right: -1.5rem;
-      width: 100px; height: 100px;
-      border: 1px solid var(--brass);
-      opacity: 0.25;
-      z-index: -1;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-    /* ── PORTFOLIO ── */
-    .portfolio { background: var(--cream); }
-    .portfolio-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 3.5rem;
-    }
-    .portfolio-note {
-      font-size: 0.75rem; letter-spacing: 0.1em;
-      color: var(--text-light); font-style: italic;
-      max-width: 260px; text-align: right; line-height: 1.7;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5px;
-      background: rgba(201,168,76,0.2);
-    }
-    .prop-card {
-      background: var(--white);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-      cursor: default;
-    }
-    .prop-card:hover { background: var(--green-deep); }
-    .prop-card:hover .prop-area,
-    .prop-card:hover .prop-title,
-    .prop-card:hover .prop-desc { color: var(--cream); }
-    .prop-card:hover .prop-type { color: var(--brass-light); border-color: rgba(201,168,76,0.4); }
-    .prop-card:hover .prop-number { color: rgba(245,240,232,0.08); }
+        .nav-links a {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--cream);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
 
-    .prop-number {
-      position: absolute; top: 1.5rem; right: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem; font-weight: 300;
-      color: rgba(26,46,30,0.05);
-      line-height: 1;
-      transition: color 0.3s;
-      user-select: none;
-    }
-    .prop-type {
-      display: inline-block;
-      font-size: 0.62rem; letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--brass-dim);
-      border: 1px solid rgba(201,168,76,0.35);
-      padding: 0.3rem 0.8rem;
-      margin-bottom: 1.2rem;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .prop-area {
-      font-size: 0.7rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--text-light);
-      margin-bottom: 0.5rem;
-      transition: color 0.3s;
-    }
-    .prop-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 400;
-      color: var(--text-dark); line-height: 1.2;
-      margin-bottom: 0.8rem;
-      transition: color 0.3s;
-    }
-    .prop-desc {
-      font-size: 0.82rem; line-height: 1.75;
-      color: var(--text-mid); font-weight: 300;
-      transition: color 0.3s;
-    }
+        .nav-links a:hover {
+            opacity: 1;
+        }
 
-    /* ── CONTACT ── */
-    .contact {
-      background: var(--green-deep);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(61,97,66,0.3) 0%, transparent 70%);
-    }
-    .contact-content { position: relative; z-index: 1; }
-    .contact .section-eyebrow { justify-content: center; }
-    .contact .section-eyebrow::before { display: none; }
-    .contact .section-title { color: var(--cream); }
-    .contact .section-title em { color: var(--brass-light); }
-    .contact-sub {
-      font-size: 0.85rem; letter-spacing: 0.08em;
-      color: rgba(245,240,232,0.5); font-weight: 300;
-      margin-bottom: 3rem; line-height: 1.8;
-    }
-    .contact-actions {
-      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      background: var(--brass);
-      color: var(--green-deep);
-      font-size: 0.72rem; letter-spacing: 0.25em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 1rem 2rem;
-      font-weight: 500;
-      transition: background 0.25s, color 0.25s;
-    }
-    .btn-primary:hover { background: var(--brass-light); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      border: 1px solid rgba(201,168,76,0.35);
-      color: var(--brass-light);
-      font-size: 0.72rem; letter-spacing: 0.25em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 1rem 2rem;
-      transition: border-color 0.25s, color 0.25s;
-    }
-    .btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #0e1c11;
-      padding: 2rem 4rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(245,240,232,0.4);
-    }
-    .footer-logo span { color: var(--brass-dim); }
-    .footer-copy {
-      font-size: 0.65rem; letter-spacing: 0.12em;
-      color: rgba(245,240,232,0.2);
-    }
-    .footer-ig a {
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(201,168,76,0.5);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .footer-ig a:hover { color: var(--brass); }
+        .nav-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--cream);
+            transition: transform 0.3s, opacity 0.3s;
+        }
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            background: var(--green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 2rem; }
-      nav.scrolled { padding: 0.8rem 2rem; }
-      .nav-links { display: none; }
-      section { padding: 5rem 2rem; }
-      .hero-content { padding: 0 2rem 5rem; }
-      .about { grid-template-columns: 1fr; gap: 3rem; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .portfolio-note { text-align: left; }
-      .band { gap: 1.5rem; padding: 1rem 2rem; flex-wrap: wrap; justify-content: flex-start; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .scroll-hint { display: none; }
-    }
-  </style>
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-sub {
+            font-family: 'Jost', sans-serif;
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-weight: 300;
+            color: var(--cream);
+            opacity: 0.7;
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cta {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brass);
+            border: 1px solid var(--brass);
+            padding: 1rem 2.5rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: var(--brass);
+            color: var(--green);
+        }
+
+        /* ── STATS BAND ── */
+        .stats {
+            background: var(--brass);
+            padding: 3rem 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--green);
+            opacity: 0.8;
+        }
+
+        /* ── ABOUT ── */
+        .about {
+            padding: 8rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            line-height: 1.15;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-card {
+            background: var(--green);
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 320px;
+        }
+
+        .about-card blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--cream);
+            line-height: 1.5;
+        }
+
+        .about-card .quote-attr {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brass);
+            margin-top: 1.5rem;
+        }
+
+        /* ── PORTFOLIO ── */
+        .portfolio {
+            background: var(--cream);
+            padding: 8rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio h2 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .portfolio-sub {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 300;
+            opacity: 0.6;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            border: 1px solid rgba(26, 46, 30, 0.12);
+            padding: 3rem;
+            transition: background 0.4s, color 0.4s, border-color 0.4s;
+            cursor: default;
+        }
+
+        .portfolio-card:hover {
+            background: var(--green);
+            color: var(--cream);
+            border-color: var(--green);
+        }
+
+        .portfolio-card .card-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--brass);
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-card .card-type {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            background: var(--green);
+            padding: 8rem 4rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+
+        .contact-sub {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--cream);
+            opacity: 0.6;
+            margin-bottom: 3rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--brass);
+            color: var(--brass);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--brass);
+            color: var(--green);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--green-dark);
+            padding: 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .footer-copy {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cream);
+            opacity: 0.4;
+        }
+
+        .footer-social {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.8rem;
+            color: var(--cream);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .footer-social:hover {
+            opacity: 0.8;
+        }
+
+        /* ── FADE-UP ANIMATION ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .nav.scrolled {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--green);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 3rem 2rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                padding: 5rem 1.5rem;
+                gap: 2.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .portfolio {
+                padding: 5rem 1.5rem;
+            }
+
+            .portfolio h2 {
+                font-size: 2.2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding: 5rem 1.5rem;
+            }
+
+            .contact h2 {
+                font-size: 2.2rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#" class="nav-logo">Prime <span>Equity</span> Group</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Connect</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <!-- Botanical SVG -->
-    <svg class="hero-botanical" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M200 380 C200 380 200 20 200 20" stroke="#c9a84c" stroke-width="1"/>
-      <path d="M200 200 C200 200 60 120 20 60" stroke="#c9a84c" stroke-width="0.8"/>
-      <path d="M200 200 C200 200 340 120 380 60" stroke="#c9a84c" stroke-width="0.8"/>
-      <path d="M200 280 C200 280 80 220 40 180" stroke="#c9a84c" stroke-width="0.7"/>
-      <path d="M200 280 C200 280 320 220 360 180" stroke="#c9a84c" stroke-width="0.7"/>
-      <path d="M200 150 C200 150 100 100 80 40" stroke="#c9a84c" stroke-width="0.6"/>
-      <path d="M200 150 C200 150 300 100 320 40" stroke="#c9a84c" stroke-width="0.6"/>
-      <circle cx="200" cy="20" r="3" fill="#c9a84c"/>
-      <circle cx="20" cy="60" r="2" fill="#c9a84c"/>
-      <circle cx="380" cy="60" r="2" fill="#c9a84c"/>
-      <circle cx="80" cy="40" r="1.5" fill="#c9a84c"/>
-      <circle cx="320" cy="40" r="1.5" fill="#c9a84c"/>
-    </svg>
-    <div class="hero-line"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow"><span>Bali — Indonesia</span></div>
-      <h1>Where <em>capital</em><br>meets the tropics.</h1>
-      <p class="hero-sub">Prime Equity Group acquires, holds, and develops premium real estate across Bali's most sought-after corridors.</p>
-      <a href="#portfolio" class="hero-cta">View our portfolio</a>
-    </div>
-    <div class="scroll-hint"><span>Scroll</span></div>
-  </section>
-
-  <!-- STATS BAND -->
-  <div class="band">
-    <div class="band-item">
-      <span>9</span>
-      <span>Years in Bali</span>
-    </div>
-    <div class="band-divider"></div>
-    <div class="band-item">
-      <span>PMA</span>
-      <span>Licensed Entity</span>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-text">
-      <div class="section-eyebrow fade-up"><span>Our Story</span></div>
-      <h2 class="section-title fade-up">Built on <em>conviction</em>,<br>grown through proximity.</h2>
-      <p class="fade-up">Prime Equity Group was founded by two partners who arrived in Bali nearly a decade ago — and never left. What began as a personal decision to plant roots in one of the world's most dynamic markets evolved into a structured approach to identifying, acquiring, and holding premium Balinese real estate.</p>
-      <p class="fade-up"><strong>Nick and Riley</strong> bring complementary perspectives to every opportunity: an eye for emerging value, a deep network built over nine years on the ground, and the operational infrastructure of a licensed PMA to move with speed and confidence.</p>
-      <p class="fade-up">We invest with patience. We hold with conviction. And we know this island in a way that takes years to earn.</p>
-    </div>
-    <div class="about-visual fade-up">
-      <div class="about-card">
-        <p class="about-card-quote">"We didn't move to Bali to invest in real estate. We moved to Bali — and investing in it was the obvious next step."</p>
-        <div class="about-card-names">
-          <span class="name">Nick &amp; Riley</span>
-          <span class="title">Co-Founders, Prime Equity Group</span>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">Prime Equity Group</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
+            <li><a href="#contact" onclick="closeNav()">Connect</a></li>
+        </ul>
+        <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
-      <div class="about-accent"></div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- PORTFOLIO -->
-  <section class="portfolio" id="portfolio">
-    <div class="portfolio-header">
-      <div>
-        <div class="section-eyebrow fade-up"><span>Portfolio</span></div>
-        <h2 class="section-title fade-up">Selected <em>holdings</em>.</h2>
-      </div>
-      <p class="portfolio-note fade-up">A curated portfolio of residential and land assets across Bali's most active markets.</p>
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero-tagline">Where capital meets<br>the tropics.</h1>
+        <p class="hero-sub">Acquiring, holding, and developing premium real estate across Bali — through a fully licensed Indonesian PMA entity.</p>
+        <a href="#portfolio" class="hero-cta">View Portfolio</a>
+    </section>
 
-    <div class="portfolio-grid">
-      <div class="prop-card fade-up">
-        <span class="prop-number">01</span>
-        <span class="prop-type">Villa — Residential</span>
-        <p class="prop-area">Bali</p>
-        <h3 class="prop-title">Residential Villa Holding</h3>
-        <p class="prop-desc">A premium residential villa acquired for long-term appreciation, positioned in a corridor benefitting from rising demand and sustained infrastructure growth.</p>
-      </div>
-      <div class="prop-card fade-up">
-        <span class="prop-number">02</span>
-        <span class="prop-type">Land — Development</span>
-        <p class="prop-area">Bali</p>
-        <h3 class="prop-title">Active Development Parcel</h3>
-        <p class="prop-desc">A strategic land holding currently being prepared for subdivision. An active value-creation project within the portfolio, acquired ahead of area development.</p>
-      </div>
-      <div class="prop-card fade-up">
-        <span class="prop-number">03</span>
-        <span class="prop-type">Villa — Residential</span>
-        <p class="prop-area">Bali</p>
-        <h3 class="prop-title">Core Residential Asset</h3>
-        <p class="prop-desc">A residential asset in a high-demand area with strong fundamentals. Held as a long-term core position — no current plans to exit.</p>
-      </div>
-      <div class="prop-card fade-up">
-        <span class="prop-number">04</span>
-        <span class="prop-type">Land — Held</span>
-        <p class="prop-area">Bali</p>
-        <h3 class="prop-title">Strategic Land Position</h3>
-        <p class="prop-desc">Raw land acquired during a favorable market window and held for long-term appreciation. Positioned for future development or divestment as conditions evolve.</p>
-      </div>
-    </div>
-  </section>
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stat fade-up">
+            <div class="stat-number">9 Years in Bali</div>
+            <div class="stat-label">On-the-ground experience</div>
+        </div>
+        <div class="stat fade-up">
+            <div class="stat-number">PMA Licensed Entity</div>
+            <div class="stat-label">Fully compliant Indonesian structure</div>
+        </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-content">
-      <div class="section-eyebrow"><span>Connect</span></div>
-      <h2 class="section-title">Let's talk <em>Bali</em>.</h2>
-      <p class="contact-sub">Whether you're exploring the market, evaluating an opportunity,<br>or simply curious about what nine years on the ground looks like — we're open.</p>
-      <div class="contact-actions">
-        <a href="mailto:hello@primeequitygroup.cc" class="btn-primary">Get in Touch</a>
-        <a href="https://instagram.com/prime.equity.group" target="_blank" class="btn-ghost">Follow on Instagram</a>
-      </div>
-    </div>
-  </section>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-text fade-up">
+            <h2>Built on the ground,<br>not from a distance.</h2>
+            <p>Prime Equity Group is a Bali-based PMA founded by Nick and Riley — two partners who have called the island home for nearly a decade.</p>
+            <p>What started as personal conviction in Bali's trajectory became a licensed vehicle for acquiring, holding, and developing real estate across the island's most compelling corridors.</p>
+            <p>We operate with a lean structure, local fluency, and long time horizons. Every asset we hold reflects a thesis we believe in — not a trend we're chasing.</p>
+        </div>
+        <div class="about-card fade-up">
+            <blockquote>&lsquo;We didn&rsquo;t move to Bali to invest in real estate. We moved to Bali — and investing in it was the obvious next step.&rsquo;</blockquote>
+            <div class="quote-attr">Nick &amp; Riley — Founders</div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Prime <span>Equity</span> Group</div>
-    <div class="footer-copy">© 2025 Prime Equity Group. Bali, Indonesia. PT PMA Licensed.</div>
-    <div class="footer-ig"><a href="https://instagram.com/prime.equity.group" target="_blank">@prime.equity.group</a></div>
-  </footer>
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="fade-up">Portfolio</h2>
+        <p class="portfolio-sub fade-up">Current holdings across Bali</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-card fade-up">
+                <div class="card-num">01</div>
+                <h3>Villa</h3>
+                <div class="card-type">Residential</div>
+            </div>
+            <div class="portfolio-card fade-up">
+                <div class="card-num">02</div>
+                <h3>Land</h3>
+                <div class="card-type">Development — Subdivision</div>
+            </div>
+            <div class="portfolio-card fade-up">
+                <div class="card-num">03</div>
+                <h3>Villa</h3>
+                <div class="card-type">Residential</div>
+            </div>
+            <div class="portfolio-card fade-up">
+                <div class="card-num">04</div>
+                <h3>Land</h3>
+                <div class="card-type">Held</div>
+            </div>
+        </div>
+    </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Nav scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2 class="fade-up">Let&rsquo;s talk Bali.</h2>
+        <p class="contact-sub fade-up">Whether you're exploring the market or ready to move — we're here.</p>
+        <div class="contact-buttons fade-up">
+            <a href="mailto:hello@primeequitygroup.cc" class="contact-btn">hello@primeequitygroup.cc</a>
+            <a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener" class="contact-btn">@prime.equity.group</a>
+        </div>
+    </section>
 
-    // Fade-up on scroll
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isInter
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">Prime Equity Group</div>
+        <div class="footer-copy">&copy; 2026 Prime Equity Group. All rights reserved.</div>
+        <a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener" class="footer-social">@prime.equity.group</a>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Mobile nav toggle
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        function closeNav() {
+            document.getElementById('navLinks').classList.remove('open');
+        }
+
+        // Fade-up on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
