@@ -4,504 +4,434 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Equity Group — Bali Real Estate PMA</title>
-    <meta name="description" content="Prime Equity Group — acquiring, holding, and developing premium Bali real estate through a licensed PMA entity.">
+    <meta name="description" content="Prime Equity Group — a Bali-based PMA acquiring and developing premium real estate across Indonesia's most compelling corridors.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --green: #1a2e1e;
             --green-dark: #121f14;
+            --green-mid: #2d4a32;
             --cream: #fdfcf9;
+            --cream-warm: #f5f0e8;
             --brass: #c9a84c;
             --brass-light: #d4b85e;
+            --brass-dim: #9a7a32;
+            --text-mid: #4a5e4d;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Jost', sans-serif;
             color: var(--green);
             background: var(--cream);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Cormorant Garamond', serif;
-        }
+        h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+        a { text-decoration: none; color: inherit; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ── NAV ── */
+        /* ── NAV ────────────────────────────────────── */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 1.5rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: background 0.4s, padding 0.4s;
         }
-
         .nav.scrolled {
-            background: var(--green);
+            background: rgba(26, 46, 30, 0.97);
+            backdrop-filter: blur(10px);
             padding: 1rem 4rem;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
-
         .nav-logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--cream);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--cream); letter-spacing: 0.2em; text-transform: uppercase;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
+        .nav-logo span { color: var(--brass); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--cream);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            opacity: 0.85;
-            transition: opacity 0.3s;
+            font-size: 0.75rem; font-weight: 400; color: var(--cream);
+            letter-spacing: 0.15em; text-transform: uppercase;
+            opacity: 0.8; transition: opacity 0.3s, color 0.3s;
         }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
+        .nav-links a:hover { opacity: 1; color: var(--brass-light); }
 
         .nav-hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001;
         }
-
         .nav-hamburger span {
-            width: 24px;
-            height: 2px;
-            background: var(--cream);
+            width: 24px; height: 2px; background: var(--cream);
             transition: transform 0.3s, opacity 0.3s;
         }
 
-        /* ── HERO ── */
+        /* ── HERO ────────────────────────────────────── */
         .hero {
             min-height: 100vh;
             background: var(--green);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
+            display: flex; align-items: flex-end;
+            padding: 0 4rem 6rem;
+            position: relative; overflow: hidden;
         }
-
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80');
+            background-size: cover; background-position: center;
+        }
+        .hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(160deg, rgba(14, 28, 17, 0.92) 0%, rgba(26, 46, 30, 0.75) 50%, rgba(26, 46, 30, 0.85) 100%);
+        }
         .hero::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 30% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+            position: absolute; inset: 0; z-index: 1;
+            background: radial-gradient(ellipse 60% 70% at 65% 40%, rgba(61, 97, 66, 0.2) 0%, transparent 70%),
+                        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
             pointer-events: none;
         }
-
-        .hero-tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            font-weight: 400;
-            font-style: italic;
-            color: var(--cream);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-sub {
-            font-family: 'Jost', sans-serif;
-            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-            font-weight: 300;
-            color: var(--cream);
-            opacity: 0.7;
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-cta {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--brass);
-            border: 1px solid var(--brass);
-            padding: 1rem 2.5rem;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .hero-cta:hover {
-            background: var(--brass);
-            color: var(--green);
-        }
-
-        /* ── STATS BAND ── */
-        .stats {
-            background: var(--brass);
-            padding: 3rem 4rem;
-            display: flex;
-            justify-content: center;
-            gap: 6rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--green);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--green);
-            opacity: 0.8;
-        }
-
-        /* ── ABOUT ── */
-        .about {
-            padding: 8rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text h2 {
-            font-size: 2.8rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            line-height: 1.15;
-        }
-
-        .about-text p {
-            font-size: 1rem;
-            font-weight: 300;
-            line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 1.25rem;
-        }
-
-        .about-card {
-            background: var(--green);
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 320px;
-        }
-
-        .about-card blockquote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            font-weight: 400;
-            color: var(--cream);
-            line-height: 1.5;
-        }
-
-        .about-card .quote-attr {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--brass);
-            margin-top: 1.5rem;
-        }
-
-        /* ── PORTFOLIO ── */
-        .portfolio {
-            background: var(--cream);
-            padding: 8rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio h2 {
-            font-size: 2.8rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .portfolio-sub {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 300;
-            opacity: 0.6;
-            margin-bottom: 4rem;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .portfolio-card {
-            border: 1px solid rgba(26, 46, 30, 0.12);
-            padding: 3rem;
-            transition: background 0.4s, color 0.4s, border-color 0.4s;
-            cursor: default;
-        }
-
-        .portfolio-card:hover {
-            background: var(--green);
-            color: var(--cream);
-            border-color: var(--green);
-        }
-
-        .portfolio-card .card-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--brass);
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-card h3 {
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-card .card-type {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.6;
-        }
-
-        /* ── CONTACT ── */
-        .contact {
-            background: var(--green);
-            padding: 8rem 4rem;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 3rem;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--cream);
-            margin-bottom: 1rem;
-        }
-
-        .contact-sub {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--cream);
-            opacity: 0.6;
-            margin-bottom: 3rem;
-        }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--brass);
-            color: var(--brass);
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .contact-btn:hover {
-            background: var(--brass);
-            color: var(--green);
-        }
-
-        /* ── FOOTER ── */
-        .footer {
-            background: var(--green-dark);
-            padding: 2.5rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--cream);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            opacity: 0.6;
-        }
-
-        .footer-copy {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.75rem;
-            color: var(--cream);
+        .hero::after {
+            content: '';
+            position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brass), transparent);
             opacity: 0.4;
         }
+        .hero-content { position: relative; z-index: 2; max-width: 780px; }
+        .hero-eyebrow {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+        }
+        .hero-eyebrow::before {
+            content: ''; width: 40px; height: 1px; background: var(--brass);
+        }
+        .hero-eyebrow span {
+            font-size: 0.68rem; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--brass); font-weight: 400;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-weight: 300; line-height: 1.08;
+            color: var(--cream); margin-bottom: 1.8rem;
+        }
+        .hero h1 em { font-style: italic; color: var(--brass-light); }
+        .hero-sub {
+            font-size: 0.88rem; font-weight: 300; letter-spacing: 0.08em;
+            color: rgba(253, 252, 249, 0.55); line-height: 1.8; max-width: 480px;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            margin-top: 2.5rem;
+            font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--brass);
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            padding: 1rem 2.2rem;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .hero-cta:hover {
+            background: var(--brass); color: var(--green); border-color: var(--brass);
+        }
+        .hero-cta::after { content: '\2192'; font-size: 1rem; }
 
-        .footer-social {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.8rem;
-            color: var(--cream);
-            opacity: 0.5;
-            transition: opacity 0.3s;
+        /* ── BAND ────────────────────────────────────── */
+        .band {
+            background: var(--brass);
+            padding: 1.2rem 4rem;
+            display: flex; align-items: center; justify-content: center; gap: 3rem;
+        }
+        .band-item {
+            display: flex; align-items: center; gap: 0.75rem; white-space: nowrap;
+        }
+        .band-item .band-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem; font-weight: 600; color: var(--green);
+        }
+        .band-item .band-label {
+            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--green); opacity: 0.7; max-width: 90px; line-height: 1.4;
+        }
+        .band-divider { width: 1px; height: 28px; background: rgba(26, 46, 30, 0.2); }
+
+        /* ── SECTION UTILITIES ────────────────────────── */
+        .section-eyebrow {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+        }
+        .section-eyebrow::before {
+            content: ''; width: 28px; height: 1px; background: var(--brass);
+        }
+        .section-eyebrow span {
+            font-size: 0.68rem; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--brass-dim);
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300; line-height: 1.15; margin-bottom: 1.5rem;
+        }
+        .section-title em { font-style: italic; color: var(--green-mid); }
+
+        /* ── ABOUT ────────────────────────────────────── */
+        .about {
+            padding: 7rem 4rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+            max-width: 1200px; margin: 0 auto; align-items: center;
+        }
+        .about-text p {
+            font-size: 0.95rem; font-weight: 300; line-height: 1.9;
+            color: var(--text-mid); margin-bottom: 1.2rem;
+        }
+        .about-text p strong { color: var(--green); font-weight: 500; }
+        .about-card {
+            background: var(--green); padding: 3rem; position: relative; overflow: hidden;
+        }
+        .about-card::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 100px; height: 100px;
+            border-left: 1px solid rgba(201, 168, 76, 0.15);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        }
+        .about-card blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem; font-style: italic; font-weight: 300;
+            color: var(--cream); line-height: 1.55;
+        }
+        .about-card .quote-attr {
+            font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--brass); margin-top: 1.5rem;
         }
 
-        .footer-social:hover {
-            opacity: 0.8;
+        /* ── IMAGE STRIP ────────────────────────────────── */
+        .image-strip {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            height: 360px;
+        }
+        .image-strip-item {
+            overflow: hidden; position: relative;
+        }
+        .image-strip-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .image-strip-item:hover img { transform: scale(1.05); }
+        .image-strip-item .strip-label {
+            position: absolute; bottom: 1.5rem; left: 1.5rem;
+            font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--cream); opacity: 0.8;
+            background: rgba(26, 46, 30, 0.5); backdrop-filter: blur(6px);
+            padding: 0.4rem 0.8rem;
         }
 
-        /* ── FADE-UP ANIMATION ── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* ── WHAT WE DO ────────────────────────────────── */
+        .services {
+            background: var(--cream-warm);
+            padding: 7rem 4rem;
+        }
+        .services-inner {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            padding: 2.5rem;
+            border: 1px solid rgba(26, 46, 30, 0.08);
+            background: var(--cream);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .service-card:hover {
+            background: var(--green); border-color: var(--green);
+        }
+        .service-card:hover .service-num,
+        .service-card:hover h3,
+        .service-card:hover p { color: var(--cream); }
+        .service-card:hover .service-num { color: var(--brass); }
+        .service-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem; color: var(--brass); margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        .service-card h3 {
+            font-size: 1.4rem; font-weight: 500; margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+        .service-card p {
+            font-size: 0.85rem; font-weight: 300; line-height: 1.75;
+            color: var(--text-mid); transition: color 0.3s;
         }
 
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ── FEATURED LISTING ────────────────────────── */
+        .featured {
+            padding: 7rem 4rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .featured-card {
+            display: grid; grid-template-columns: 1fr 1fr;
+            border: 1px solid rgba(26, 46, 30, 0.1);
+            overflow: hidden;
+        }
+        .featured-info {
+            padding: 3.5rem;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .featured-badge {
+            display: inline-block; width: fit-content;
+            font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--brass-dim);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            padding: 0.35rem 0.9rem; margin-bottom: 1.5rem;
+        }
+        .featured-info h3 {
+            font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem;
+        }
+        .featured-info .featured-location {
+            font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-mid); margin-bottom: 1.5rem;
+        }
+        .featured-info p {
+            font-size: 0.9rem; font-weight: 300; line-height: 1.8;
+            color: var(--text-mid); margin-bottom: 1.5rem;
+        }
+        .featured-details {
+            display: flex; gap: 2rem; margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .featured-detail {
+            display: flex; flex-direction: column; gap: 0.2rem;
+        }
+        .featured-detail .detail-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem; font-weight: 500; color: var(--green);
+        }
+        .featured-detail .detail-label {
+            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-mid); opacity: 0.7;
+        }
+        .featured-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--brass-dim);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+            padding-bottom: 0.25rem; width: fit-content;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .featured-cta:hover { color: var(--brass); border-color: var(--brass); }
+        .featured-cta::after { content: '\2192'; font-size: 0.9rem; }
+        .featured-visual {
+            position: relative; overflow: hidden; min-height: 450px;
+        }
+        .featured-visual img {
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; inset: 0;
+        }
+        .featured-visual-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(26, 46, 30, 0.7) 100%);
+            display: flex; align-items: flex-end; padding: 2rem;
+        }
+        .featured-visual-overlay span {
+            font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--cream); opacity: 0.8;
         }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            .nav {
-                padding: 1.25rem 1.5rem;
-            }
+        /* ── CONTACT ────────────────────────────────────── */
+        .contact {
+            background: var(--green); padding: 7rem 4rem;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .contact::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(61, 97, 66, 0.25) 0%, transparent 70%);
+        }
+        .contact-content { position: relative; z-index: 1; }
+        .contact .section-eyebrow { justify-content: center; }
+        .contact .section-eyebrow::before { display: none; }
+        .contact .section-title { color: var(--cream); }
+        .contact .section-title em { color: var(--brass-light); }
+        .contact-sub {
+            font-size: 0.88rem; font-weight: 300; letter-spacing: 0.06em;
+            color: rgba(253, 252, 249, 0.5); line-height: 1.8;
+            margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto;
+        }
+        .contact-actions {
+            display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: var(--brass); color: var(--green);
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 1rem 2rem; font-weight: 500;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover { background: var(--brass-light); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 1px solid rgba(201, 168, 76, 0.3); color: var(--brass);
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 1rem 2rem;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .btn-ghost:hover { border-color: var(--brass); color: var(--brass-light); }
 
-            .nav.scrolled {
-                padding: 1rem 1.5rem;
-            }
+        /* ── FOOTER ────────────────────────────────────── */
+        .footer {
+            background: var(--green-dark); padding: 2rem 4rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: rgba(253, 252, 249, 0.35);
+        }
+        .footer-logo span { color: var(--brass-dim); }
+        .footer-copy {
+            font-size: 0.65rem; letter-spacing: 0.1em;
+            color: rgba(253, 252, 249, 0.2);
+        }
+        .footer-social a {
+            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: rgba(201, 168, 76, 0.45); transition: color 0.3s;
+        }
+        .footer-social a:hover { color: var(--brass); }
 
+        /* ── ANIMATIONS ────────────────────────────────── */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        @media (max-width: 900px) {
+            .nav { padding: 1.25rem 1.5rem; }
+            .nav.scrolled { padding: 1rem 1.5rem; }
             .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: var(--green);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
+                display: none; position: fixed; top: 0; left: 0;
+                width: 100%; height: 100vh; background: var(--green);
+                flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
             }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-
-            .nav-hamburger {
-                display: flex;
-            }
-
-            .hero {
-                padding: 6rem 1.5rem 4rem;
-            }
-
-            .stats {
-                flex-direction: column;
-                gap: 2rem;
-                padding: 3rem 2rem;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                padding: 5rem 1.5rem;
-                gap: 2.5rem;
-            }
-
-            .about-text h2 {
-                font-size: 2.2rem;
-            }
-
-            .portfolio {
-                padding: 5rem 1.5rem;
-            }
-
-            .portfolio h2 {
-                font-size: 2.2rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact {
-                padding: 5rem 1.5rem;
-            }
-
-            .contact h2 {
-                font-size: 2.2rem;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
+            .nav-links.open { display: flex; }
+            .nav-links a { font-size: 1rem; }
+            .nav-hamburger { display: flex; }
+            .hero { padding: 0 1.5rem 4rem; }
+            .band { gap: 1.5rem; padding: 1rem 1.5rem; flex-wrap: wrap; }
+            .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 2.5rem; }
+            .image-strip { grid-template-columns: 1fr; height: auto; }
+            .image-strip-item { height: 220px; }
+            .services { padding: 5rem 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .featured { padding: 5rem 1.5rem; }
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-visual { min-height: 250px; }
+            .contact { padding: 5rem 1.5rem; }
+            .contact-actions { flex-direction: column; align-items: center; }
             .footer {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding: 2rem 1.5rem;
+                flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem;
             }
         }
     </style>
@@ -510,123 +440,187 @@
 
     <!-- NAV -->
     <nav class="nav" id="nav">
-        <a href="#" class="nav-logo">Prime Equity Group</a>
+        <a href="#" class="nav-logo">Prime <span>Equity</span> Group</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about" onclick="closeNav()">About</a></li>
-            <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
+            <li><a href="#services" onclick="closeNav()">Approach</a></li>
+            <li><a href="#listing" onclick="closeNav()">Listing</a></li>
             <li><a href="#contact" onclick="closeNav()">Connect</a></li>
         </ul>
         <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="hero-tagline">Where capital meets<br>the tropics.</h1>
-        <p class="hero-sub">Acquiring, holding, and developing premium real estate across Bali — through a fully licensed Indonesian PMA entity.</p>
-        <a href="#portfolio" class="hero-cta">View Portfolio</a>
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow"><span>Bali, Indonesia</span></div>
+            <h1>Where <em>capital</em><br>meets the tropics.</h1>
+            <p class="hero-sub">We acquire, hold, and develop real estate across Bali through a fully licensed PMA. Nine years on the ground. No middlemen.</p>
+            <a href="#listing" class="hero-cta">Current Listing</a>
+        </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats">
-        <div class="stat fade-up">
-            <div class="stat-number">9 Years in Bali</div>
-            <div class="stat-label">On-the-ground experience</div>
+    <!-- BAND -->
+    <div class="band">
+        <div class="band-item">
+            <span class="band-val">9</span>
+            <span class="band-label">Years in Bali</span>
         </div>
-        <div class="stat fade-up">
-            <div class="stat-number">PMA Licensed Entity</div>
-            <div class="stat-label">Fully compliant Indonesian structure</div>
+        <div class="band-divider"></div>
+        <div class="band-item">
+            <span class="band-val">PMA</span>
+            <span class="band-label">Licensed Entity</span>
         </div>
-    </section>
+        <div class="band-divider"></div>
+        <div class="band-item">
+            <span class="band-val">Freehold</span>
+            <span class="band-label">Direct Ownership</span>
+        </div>
+    </div>
 
     <!-- ABOUT -->
     <section class="about" id="about">
-        <div class="about-text fade-up">
-            <h2>Built on the ground,<br>not from a distance.</h2>
-            <p>Prime Equity Group is a Bali-based PMA founded by Nick and Riley — two partners who have called the island home for nearly a decade.</p>
-            <p>What started as personal conviction in Bali's trajectory became a licensed vehicle for acquiring, holding, and developing real estate across the island's most compelling corridors.</p>
-            <p>We operate with a lean structure, local fluency, and long time horizons. Every asset we hold reflects a thesis we believe in — not a trend we're chasing.</p>
+        <div class="about-text">
+            <div class="section-eyebrow reveal"><span>Who We Are</span></div>
+            <h2 class="section-title reveal">Built on the ground,<br>not from <em>a distance</em>.</h2>
+            <p class="reveal">Prime Equity Group is a Bali-based real estate PMA founded by <strong>Nick and Riley</strong> &mdash; two partners who have called the island home for close to a decade.</p>
+            <p class="reveal">We know this market because we live in it. Every acquisition we make is backed by local networks, direct relationships, and a deep understanding of where Bali is headed &mdash; not where it's been.</p>
+            <p class="reveal">No brokers. No offshore guesswork. Just two people who understand the island, the opportunity, and the structure required to move on it.</p>
         </div>
-        <div class="about-card fade-up">
-            <blockquote>&lsquo;We didn&rsquo;t move to Bali to invest in real estate. We moved to Bali — and investing in it was the obvious next step.&rsquo;</blockquote>
-            <div class="quote-attr">Nick &amp; Riley — Founders</div>
+        <div class="about-card reveal">
+            <blockquote>&lsquo;We didn&rsquo;t move to Bali to invest in real estate. We moved to Bali &mdash; and investing in it was the obvious next step.&rsquo;</blockquote>
+            <div class="quote-attr">Nick &amp; Riley &mdash; Founders</div>
         </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="fade-up">Portfolio</h2>
-        <p class="portfolio-sub fade-up">Current holdings across Bali</p>
-        <div class="portfolio-grid">
-            <div class="portfolio-card fade-up">
-                <div class="card-num">01</div>
-                <h3>Villa</h3>
-                <div class="card-type">Residential</div>
+    <!-- IMAGE STRIP -->
+    <div class="image-strip">
+        <div class="image-strip-item">
+            <img src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=800&q=80" alt="Bali villa with pool" loading="lazy">
+            <span class="strip-label">Villa Living</span>
+        </div>
+        <div class="image-strip-item">
+            <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80" alt="Bali rice terraces" loading="lazy">
+            <span class="strip-label">The Island</span>
+        </div>
+        <div class="image-strip-item">
+            <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80" alt="Bali tropical development" loading="lazy">
+            <span class="strip-label">Development</span>
+        </div>
+    </div>
+
+    <!-- WHAT WE DO -->
+    <section class="services" id="services">
+        <div class="services-inner">
+            <div class="section-eyebrow reveal"><span>Our Approach</span></div>
+            <h2 class="section-title reveal">How we <em>operate</em>.</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-num">01</div>
+                    <h3>Acquire</h3>
+                    <p>We source land and villas through direct relationships &mdash; not listings. Our network gives us access before properties hit the open market.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-num">02</div>
+                    <h3>Hold</h3>
+                    <p>We take long positions on assets in corridors we believe in. Patient capital, strong fundamentals, no pressure to flip.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-num">03</div>
+                    <h3>Develop</h3>
+                    <p>When the opportunity is right, we subdivide, build, or reposition &mdash; always with local contractors, local permits, and local knowledge.</p>
+                </div>
             </div>
-            <div class="portfolio-card fade-up">
-                <div class="card-num">02</div>
-                <h3>Land</h3>
-                <div class="card-type">Development — Subdivision</div>
+        </div>
+    </section>
+
+    <!-- FEATURED LISTING -->
+    <section class="featured" id="listing">
+        <div class="section-eyebrow reveal"><span>Current Listing</span></div>
+        <h2 class="section-title reveal">Available <em>now</em>.</h2>
+        <div class="featured-card reveal">
+            <div class="featured-info">
+                <div class="featured-badge">For Sale &mdash; Freehold</div>
+                <h3>Ocean-View Land</h3>
+                <div class="featured-location">Medewi, Bali</div>
+                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi &mdash; one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south.</p>
+                <div class="featured-details">
+                    <div class="featured-detail">
+                        <span class="detail-val">32 Are</span>
+                        <span class="detail-label">Land Size</span>
+                    </div>
+                    <div class="featured-detail">
+                        <span class="detail-val">Freehold</span>
+                        <span class="detail-label">Ownership</span>
+                    </div>
+                    <div class="featured-detail">
+                        <span class="detail-val">200m</span>
+                        <span class="detail-label">From Ocean</span>
+                    </div>
+                    <div class="featured-detail">
+                        <span class="detail-val">Ocean View</span>
+                        <span class="detail-label">Orientation</span>
+                    </div>
+                </div>
+                <a href="mailto:hello@primeequitygroup.cc?subject=Medewi%20Listing%20Inquiry" class="featured-cta">Inquire about this property</a>
             </div>
-            <div class="portfolio-card fade-up">
-                <div class="card-num">03</div>
-                <h3>Villa</h3>
-                <div class="card-type">Residential</div>
-            </div>
-            <div class="portfolio-card fade-up">
-                <div class="card-num">04</div>
-                <h3>Land</h3>
-                <div class="card-type">Held</div>
+            <div class="featured-visual">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80" alt="Ocean view coastline in Bali" loading="lazy">
+                <div class="featured-visual-overlay">
+                    <span>Medewi, Bali</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-        <h2 class="fade-up">Let&rsquo;s talk Bali.</h2>
-        <p class="contact-sub fade-up">Whether you're exploring the market or ready to move — we're here.</p>
-        <div class="contact-buttons fade-up">
-            <a href="mailto:hello@primeequitygroup.cc" class="contact-btn">hello@primeequitygroup.cc</a>
-            <a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener" class="contact-btn">@prime.equity.group</a>
+        <div class="contact-content">
+            <div class="section-eyebrow reveal"><span>Get in Touch</span></div>
+            <h2 class="section-title reveal">Let&rsquo;s talk <em>Bali</em>.</h2>
+            <p class="contact-sub reveal">Whether you&rsquo;re looking at land, exploring the market, or just want to know what nine years on the ground actually looks like &mdash; reach out.</p>
+            <div class="contact-actions reveal">
+                <a href="mailto:hello@primeequitygroup.cc" class="btn-primary">hello@primeequitygroup.cc</a>
+                <a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener" class="btn-ghost">@prime.equity.group</a>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-logo">Prime Equity Group</div>
-        <div class="footer-copy">&copy; 2026 Prime Equity Group. All rights reserved.</div>
-        <a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener" class="footer-social">@prime.equity.group</a>
+        <div class="footer-logo">Prime <span>Equity</span> Group</div>
+        <div class="footer-copy">&copy; 2026 Prime Equity Group &middot; Bali, Indonesia &middot; PT PMA Licensed</div>
+        <div class="footer-social"><a href="https://instagram.com/prime.equity.group" target="_blank" rel="noopener">@prime.equity.group</a></div>
     </footer>
 
     <script>
-        // Nav scroll effect
+        // Nav scroll
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Mobile nav toggle
+        // Mobile nav
         function toggleNav() {
             document.getElementById('navLinks').classList.toggle('open');
         }
-
         function closeNav() {
             document.getElementById('navLinks').classList.remove('open');
         }
 
-        // Fade-up on scroll
+        // Reveal on scroll — lower threshold so content appears earlier
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>
