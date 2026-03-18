@@ -236,30 +236,43 @@
             margin-top: 3rem;
         }
         .service-card {
-            padding: 2.5rem;
-            border: 1px solid rgba(26, 46, 30, 0.08);
-            background: var(--cream);
-            transition: background 0.3s, border-color 0.3s;
+            padding: 2.8rem 2.5rem;
+            background: var(--green);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--brass), var(--brass-light));
+        }
+        .service-card::after {
+            content: '';
+            position: absolute; bottom: -60px; right: -60px;
+            width: 160px; height: 160px;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            border-radius: 50%;
+            transition: opacity 0.4s;
         }
         .service-card:hover {
-            background: var(--green); border-color: var(--green);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(26, 46, 30, 0.3);
         }
-        .service-card:hover .service-num,
-        .service-card:hover h3,
-        .service-card:hover p { color: var(--cream); }
-        .service-card:hover .service-num { color: var(--brass); }
-        .service-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem; color: var(--brass); margin-bottom: 1.5rem;
-            transition: color 0.3s;
+        .service-card:hover::after { opacity: 0.5; }
+        .service-icon {
+            width: 48px; height: 48px;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.8rem; font-size: 1.2rem; color: var(--brass);
         }
         .service-card h3 {
-            font-size: 1.4rem; font-weight: 500; margin-bottom: 0.75rem;
-            transition: color 0.3s;
+            font-size: 1.6rem; font-weight: 500; color: var(--cream);
+            margin-bottom: 0.9rem;
         }
         .service-card p {
-            font-size: 0.85rem; font-weight: 300; line-height: 1.75;
-            color: var(--text-mid); transition: color 0.3s;
+            font-size: 0.85rem; font-weight: 300; line-height: 1.85;
+            color: rgba(253, 252, 249, 0.55);
         }
 
         /* ── FEATURED LISTING ────────────────────────── */
@@ -268,73 +281,90 @@
             max-width: 1200px; margin: 0 auto;
         }
         .featured-card {
-            display: grid; grid-template-columns: 1fr 1fr;
-            border: 1px solid rgba(26, 46, 30, 0.1);
+            background: var(--green);
+            overflow: hidden;
+            position: relative;
+        }
+        .featured-hero {
+            position: relative;
+            height: 420px;
             overflow: hidden;
         }
-        .featured-info {
-            padding: 3.5rem;
-            display: flex; flex-direction: column; justify-content: center;
+        .featured-hero img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .featured-hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(26, 46, 30, 0.95) 100%);
+        }
+        .featured-hero-text {
+            position: absolute; bottom: 2.5rem; left: 3rem; z-index: 2;
         }
         .featured-badge {
             display: inline-block; width: fit-content;
             font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
-            color: var(--brass-dim);
-            border: 1px solid rgba(201, 168, 76, 0.35);
-            padding: 0.35rem 0.9rem; margin-bottom: 1.5rem;
+            color: var(--brass);
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 0.4rem 1rem; margin-bottom: 1rem;
         }
-        .featured-info h3 {
-            font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem;
+        .featured-hero-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem; font-weight: 400; line-height: 1.1;
+            color: var(--cream); margin-bottom: 0.3rem;
         }
-        .featured-info .featured-location {
-            font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--text-mid); margin-bottom: 1.5rem;
+        .featured-hero-text .featured-location {
+            font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--brass-light); opacity: 0.8;
         }
-        .featured-info p {
-            font-size: 0.9rem; font-weight: 300; line-height: 1.8;
-            color: var(--text-mid); margin-bottom: 1.5rem;
+        .featured-body {
+            padding: 2.5rem 3rem 3rem;
+        }
+        .featured-body p {
+            font-size: 0.92rem; font-weight: 300; line-height: 1.85;
+            color: rgba(253, 252, 249, 0.55); margin-bottom: 2rem;
+            max-width: 700px;
         }
         .featured-details {
-            display: flex; gap: 2rem; margin-bottom: 2rem;
-            flex-wrap: wrap;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 0; margin-bottom: 2.5rem;
         }
         .featured-detail {
-            display: flex; flex-direction: column; gap: 0.2rem;
+            display: flex; flex-direction: column; gap: 0.3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(201, 168, 76, 0.15);
         }
         .featured-detail .detail-val {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem; font-weight: 500; color: var(--green);
+            font-size: 1.5rem; font-weight: 500; color: var(--cream);
         }
         .featured-detail .detail-label {
-            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--text-mid); opacity: 0.7;
+            font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: rgba(253, 252, 249, 0.35);
         }
-        .featured-cta {
+        .featured-actions {
+            display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;
+        }
+        .featured-cta-primary {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: var(--brass); color: var(--green);
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 1rem 2rem; font-weight: 500;
+            transition: background 0.3s;
+        }
+        .featured-cta-primary:hover { background: var(--brass-light); }
+        .featured-cta-primary::after { content: '\2192'; font-size: 0.9rem; }
+        .featured-cta-secondary {
             display: inline-flex; align-items: center; gap: 0.5rem;
             font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--brass-dim);
-            border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-            padding-bottom: 0.25rem; width: fit-content;
-            transition: color 0.3s, border-color 0.3s;
+            color: var(--brass);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 1rem 2rem;
+            transition: border-color 0.3s, color 0.3s;
         }
-        .featured-cta:hover { color: var(--brass); border-color: var(--brass); }
-        .featured-cta::after { content: '\2192'; font-size: 0.9rem; }
-        .featured-visual {
-            position: relative; overflow: hidden; min-height: 450px;
-        }
-        .featured-visual img {
-            width: 100%; height: 100%; object-fit: cover;
-            position: absolute; inset: 0;
-        }
-        .featured-visual-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(26, 46, 30, 0.7) 100%);
-            display: flex; align-items: flex-end; padding: 2rem;
-        }
-        .featured-visual-overlay span {
-            font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--cream); opacity: 0.8;
-        }
+        .featured-cta-secondary:hover { border-color: var(--brass); color: var(--brass-light); }
+        .featured-cta-secondary::after { content: '\2192'; font-size: 0.9rem; }
 
         /* ── CONTACT ────────────────────────────────────── */
         .contact {
@@ -426,8 +456,12 @@
             .services { padding: 5rem 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
             .featured { padding: 5rem 1.5rem; }
-            .featured-card { grid-template-columns: 1fr; }
-            .featured-visual { min-height: 250px; }
+            .featured-hero { height: 280px; }
+            .featured-hero-text { left: 1.5rem; bottom: 1.5rem; }
+            .featured-hero-text h3 { font-size: 2rem; }
+            .featured-body { padding: 1.5rem; }
+            .featured-details { grid-template-columns: repeat(2, 1fr); }
+            .featured-actions { flex-direction: column; }
             .contact { padding: 5rem 1.5rem; }
             .contact-actions { flex-direction: column; align-items: center; }
             .footer {
@@ -503,11 +537,11 @@
             <span class="strip-label">Villa Living</span>
         </div>
         <div class="image-strip-item">
-            <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80" alt="Bali rice terraces" loading="lazy">
+            <img src="website photos/pexels-oidonnyboy-13136388.jpg" alt="Surfers silhouetted at sunset on Bali coastline" loading="lazy">
             <span class="strip-label">The Island</span>
         </div>
         <div class="image-strip-item">
-            <img src="https://images.unsplash.com/photo-1728048756857-d1ed820ea0e7?w=800&q=80" alt="Aerial view of Bali villa development with pools" loading="lazy">
+            <img src="website photos/pexels-fikiendisile-11977314.jpg" alt="Construction worker building in Bali" loading="lazy">
             <span class="strip-label">Development</span>
         </div>
     </div>
@@ -519,17 +553,17 @@
             <h2 class="section-title reveal">How we <em>operate</em>.</h2>
             <div class="services-grid">
                 <div class="service-card reveal">
-                    <div class="service-num">01</div>
+                    <div class="service-icon">&#9670;</div>
                     <h3>Acquire</h3>
                     <p>We source land and villas through direct relationships  - not listings. Our network gives us access before properties hit the open market.</p>
                 </div>
                 <div class="service-card reveal reveal-delay-1">
-                    <div class="service-num">02</div>
+                    <div class="service-icon">&#9673;</div>
                     <h3>Hold</h3>
                     <p>We take long positions on assets in corridors we believe in. Patient capital, strong fundamentals, no pressure to flip.</p>
                 </div>
                 <div class="service-card reveal reveal-delay-2">
-                    <div class="service-num">03</div>
+                    <div class="service-icon">&#9651;</div>
                     <h3>Develop</h3>
                     <p>When the opportunity is right, we subdivide, build, or reposition  - always with local contractors, local permits, and local knowledge.</p>
                 </div>
@@ -542,11 +576,16 @@
         <div class="section-eyebrow reveal"><span>Current Listing</span></div>
         <h2 class="section-title reveal">Available <em>now</em>.</h2>
         <div class="featured-card reveal">
-            <div class="featured-info">
-                <div class="featured-badge">For Sale  - Freehold</div>
-                <h3>Ocean-View Land</h3>
-                <div class="featured-location">Medewi, Bali</div>
-                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi  - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south.</p>
+            <div class="featured-hero">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1400&q=80" alt="Bali coastline with ocean views near Medewi" loading="lazy">
+                <div class="featured-hero-text">
+                    <div class="featured-badge">For Sale - Freehold</div>
+                    <h3>Ocean-View Land</h3>
+                    <div class="featured-location">Medewi, Bali</div>
+                </div>
+            </div>
+            <div class="featured-body">
+                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south.</p>
                 <div class="featured-details">
                     <div class="featured-detail">
                         <span class="detail-val">32 Are</span>
@@ -565,14 +604,10 @@
                         <span class="detail-label">Orientation</span>
                     </div>
                 </div>
-                <a href="mailto:hello@primeequitygroup.cc?subject=Medewi%20Listing%20Inquiry" class="featured-cta">Inquire about this property</a>
-            </div>
-            <div class="featured-visual featured-map">
-                <div style="position:absolute;inset:0;pointer-events:none;z-index:2;"></div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8000!2d114.8231!3d-8.4542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sid!4v1710700000000!5m2!1sen!2sid" style="width:100%;height:100%;border:0;position:absolute;inset:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div style="text-align:center;padding:1.2rem 0 0;">
-                <a href="https://www.google.com/maps/place/Medewi,+Pekutatan,+Jembrana+Regency,+Bali,+Indonesia/@-8.4542,114.8231,14z/data=!3m1!4b1" target="_blank" rel="noopener" class="featured-cta">View Location on Google Maps</a>
+                <div class="featured-actions">
+                    <a href="mailto:hello@primeequitygroup.cc?subject=Medewi%20Listing%20Inquiry" class="featured-cta-primary">Inquire Now</a>
+                    <a href="https://www.google.com/maps/place/Medewi,+Pekutatan,+Jembrana+Regency,+Bali,+Indonesia/@-8.4542,114.8231,14z/data=!3m1!4b1" target="_blank" rel="noopener" class="featured-cta-secondary">View on Maps</a>
+                </div>
             </div>
         </div>
     </section>
