@@ -444,6 +444,80 @@
         }
         .footer-social a:hover { color: var(--brass); }
 
+        /* ── EMERGING MARKETS ───────────────────────────── */
+        .emerging {
+            background: var(--green); padding: 7rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .emerging::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 50% 60% at 30% 40%, rgba(61, 97, 66, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .emerging-inner {
+            max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+        }
+        .emerging .section-eyebrow span { color: var(--brass); }
+        .emerging .section-title { color: var(--cream); }
+        .emerging .section-title em { color: var(--brass-light); }
+        .emerging-intro {
+            font-size: 0.92rem; font-weight: 300; line-height: 1.85;
+            color: rgba(253, 252, 249, 0.55); max-width: 650px; margin-bottom: 3rem;
+        }
+        .emerging-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+        }
+        .emerging-card {
+            background: rgba(253, 252, 249, 0.04);
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            padding: 2.5rem;
+            position: relative; overflow: hidden;
+            transition: border-color 0.4s;
+        }
+        .emerging-card:hover { border-color: rgba(201, 168, 76, 0.3); }
+        .emerging-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--brass), var(--brass-light));
+            opacity: 0.6;
+        }
+        .emerging-card-eyebrow {
+            font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--brass); margin-bottom: 0.8rem; opacity: 0.7;
+        }
+        .emerging-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; font-weight: 400; color: var(--cream);
+            margin-bottom: 1rem;
+        }
+        .emerging-card h3 em { font-style: italic; color: var(--brass-light); }
+        .emerging-card p {
+            font-size: 0.85rem; font-weight: 300; line-height: 1.85;
+            color: rgba(253, 252, 249, 0.5); margin-bottom: 1.5rem;
+        }
+        .emerging-highlights {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+        }
+        .emerging-tag {
+            font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--brass); opacity: 0.6;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 0.3rem 0.7rem;
+        }
+        .emerging-cta {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            margin-top: 3rem;
+            font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--brass);
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            padding: 1rem 2.2rem;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .emerging-cta:hover {
+            background: var(--brass); color: var(--green); border-color: var(--brass);
+        }
+        .emerging-cta::after { content: '\2192'; font-size: 1rem; }
+
         /* ── FAQ ────────────────────────────────────────── */
         .faq {
             background: var(--cream-warm);
@@ -609,6 +683,15 @@
                 font-size: 0.68rem; padding: 0.85rem 1.5rem;
                 text-align: center; justify-content: center; width: 100%;
             }
+
+            /* EMERGING MARKETS */
+            .emerging { padding: 4rem 1.25rem; }
+            .emerging-intro { font-size: 0.82rem; line-height: 1.7; margin-bottom: 2rem; }
+            .emerging-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .emerging-card { padding: 1.8rem 1.5rem; }
+            .emerging-card h3 { font-size: 1.4rem; }
+            .emerging-card p { font-size: 0.82rem; line-height: 1.7; }
+            .emerging-cta { padding: 0.85rem 1.8rem; font-size: 0.68rem; }
 
             /* FAQ */
             .faq { padding: 4rem 1.25rem; }
@@ -834,6 +917,46 @@
                     <div class="stat-label">Toll Road to West Bali</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- EMERGING MARKETS -->
+    <section class="emerging" id="emerging">
+        <div class="emerging-inner">
+            <div class="section-eyebrow reveal"><span>Beyond Bali</span></div>
+            <h2 class="section-title reveal">Where we're <em>looking next</em>.</h2>
+            <p class="emerging-intro reveal">Indonesia is 17,000 islands. Bali is where we started - but the same fundamentals that made Bali compelling a decade ago are now playing out across other corridors. We're actively exploring opportunities in two of the country's most promising markets.</p>
+
+            <div class="emerging-grid">
+                <div class="emerging-card reveal">
+                    <div class="emerging-card-eyebrow">Nusa Tenggara Barat</div>
+                    <h3>Lombok - the <em>quiet neighbour</em></h3>
+                    <p>Just 30 minutes by plane from Bali, Lombok offers dramatic coastline, world-class surf, and land prices that are still a fraction of Bali's. The new Mandalika SEZ (Special Economic Zone) and MotoGP circuit have accelerated infrastructure development - new roads, an expanding international airport, and a growing wave of luxury hospitality.</p>
+                    <p>South Lombok in particular (Kuta, Selong Belanak, Gerupuk) is attracting serious capital. The window for early-stage land acquisition is narrowing, but it's still open.</p>
+                    <div class="emerging-highlights">
+                        <span class="emerging-tag">Mandalika SEZ</span>
+                        <span class="emerging-tag">MotoGP Circuit</span>
+                        <span class="emerging-tag">International Airport</span>
+                        <span class="emerging-tag">Surf Tourism</span>
+                        <span class="emerging-tag">Freehold Available</span>
+                    </div>
+                </div>
+
+                <div class="emerging-card reveal reveal-delay-1">
+                    <div class="emerging-card-eyebrow">Nusa Tenggara Timur</div>
+                    <h3>Sumba - <em>untouched</em> Indonesia</h3>
+                    <p>Sumba is for the long-term investor. Remote, raw, and largely undeveloped - it's one of the last places in Southeast Asia where you can acquire significant oceanfront land at ground-floor pricing. The island has caught the attention of ultra-luxury hospitality brands (Nihi Sumba, Cap Karoso) which have proven the demand exists.</p>
+                    <p>Infrastructure is still early, which means the entry point is low - but the trajectory mirrors what Bali and Lombok looked like at the very beginning. Patient capital only.</p>
+                    <div class="emerging-highlights">
+                        <span class="emerging-tag">Ultra-Luxury Hospitality</span>
+                        <span class="emerging-tag">Oceanfront Land</span>
+                        <span class="emerging-tag">Ground Floor Pricing</span>
+                        <span class="emerging-tag">Long-Term Hold</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="mailto:hello@primeequitygroup.cc?subject=Lombok%20%2F%20Sumba%20Inquiry" class="emerging-cta reveal">Discuss Opportunities</a>
         </div>
     </section>
 
