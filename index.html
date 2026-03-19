@@ -444,6 +444,76 @@
         }
         .footer-social a:hover { color: var(--brass); }
 
+        /* ── FAQ ────────────────────────────────────────── */
+        .faq {
+            background: var(--cream-warm);
+            padding: 7rem 4rem;
+        }
+        .faq-inner {
+            max-width: 800px; margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(26, 46, 30, 0.1);
+        }
+        .faq-question {
+            width: 100%; background: none; border: none; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem; font-weight: 500; color: var(--green);
+            text-align: left; line-height: 1.3;
+        }
+        .faq-question::after {
+            content: '+'; font-family: 'Jost', sans-serif;
+            font-size: 1.4rem; font-weight: 300; color: var(--brass);
+            margin-left: 1rem; flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        .faq-question.active::after {
+            content: '-';
+        }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-answer.open {
+            max-height: 300px;
+        }
+        .faq-answer p {
+            font-size: 0.88rem; font-weight: 300; line-height: 1.85;
+            color: var(--text-mid); padding-bottom: 1.5rem;
+        }
+
+        /* ── AREA GUIDE ────────────────────────────────── */
+        .area-guide {
+            padding: 7rem 4rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .area-guide-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            margin-top: 3rem; align-items: start;
+        }
+        .area-guide-text p {
+            font-size: 0.92rem; font-weight: 300; line-height: 1.85;
+            color: var(--text-mid); margin-bottom: 1.2rem;
+        }
+        .area-guide-text p strong { color: var(--green); font-weight: 500; }
+        .area-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+        }
+        .area-stat {
+            background: var(--green); padding: 1.8rem 1.5rem;
+        }
+        .area-stat .stat-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; font-weight: 600; color: var(--brass);
+            margin-bottom: 0.3rem;
+        }
+        .area-stat .stat-label {
+            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: rgba(253, 252, 249, 0.45); line-height: 1.5;
+        }
+
         /* ── ANIMATIONS ────────────────────────────────── */
         .reveal {
             opacity: 0; transform: translateY(24px);
@@ -539,6 +609,19 @@
                 font-size: 0.68rem; padding: 0.85rem 1.5rem;
                 text-align: center; justify-content: center; width: 100%;
             }
+
+            /* FAQ */
+            .faq { padding: 4rem 1.25rem; }
+            .faq-question { font-size: 1.1rem; padding: 1.2rem 0; }
+            .faq-answer p { font-size: 0.82rem; line-height: 1.7; }
+
+            /* AREA GUIDE */
+            .area-guide { padding: 4rem 1.25rem; }
+            .area-guide-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+            .area-guide-text p { font-size: 0.85rem; line-height: 1.7; }
+            .area-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+            .area-stat { padding: 1.3rem 1rem; }
+            .area-stat .stat-val { font-size: 1.4rem; }
 
             /* CONTACT */
             .contact { padding: 4rem 1.25rem; }
@@ -722,6 +805,88 @@
         </div>
     </section>
 
+    <!-- AREA GUIDE -->
+    <section class="area-guide" id="medewi">
+        <div class="section-eyebrow reveal"><span>Why Medewi</span></div>
+        <h2 class="section-title reveal">The next <em>frontier</em>.</h2>
+        <div class="area-guide-grid">
+            <div class="area-guide-text">
+                <p class="reveal"><strong>Medewi is where Bali was ten years ago.</strong> Located on the island's west coast in Jembrana Regency, it's one of the last stretches of undeveloped coastline with direct ocean access, consistent surf, and zero congestion.</p>
+                <p class="reveal">While the south (Canggu, Seminyak, Uluwatu) has been built out and priced accordingly, Medewi is still early. Land prices are a fraction of what you'd pay in the south - but the trajectory is clear. New roads, growing tourism infrastructure, and a wave of boutique hospitality projects are already underway.</p>
+                <p class="reveal">The government's push to develop West Bali as a tourism corridor - combined with the new toll road connecting the airport to the west coast - means <strong>Medewi is positioned for significant growth over the next 5-10 years</strong>.</p>
+                <p class="reveal">This is the window. The land we're offering sits 200 meters from the ocean with unobstructed views - the kind of parcel that simply won't exist at this price point in a few years.</p>
+            </div>
+            <div class="area-stats reveal">
+                <div class="area-stat">
+                    <div class="stat-val">2-3hrs</div>
+                    <div class="stat-label">From Ngurah Rai Airport</div>
+                </div>
+                <div class="area-stat">
+                    <div class="stat-val">1/5th</div>
+                    <div class="stat-label">Price of South Bali Land</div>
+                </div>
+                <div class="area-stat">
+                    <div class="stat-val">200m</div>
+                    <div class="stat-label">From the Ocean</div>
+                </div>
+                <div class="area-stat">
+                    <div class="stat-val">New</div>
+                    <div class="stat-label">Toll Road to West Bali</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <div class="section-eyebrow reveal"><span>Common Questions</span></div>
+            <h2 class="section-title reveal">What you need <em>to know</em>.</h2>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">What is a PMA?</button>
+                <div class="faq-answer">
+                    <p>A PMA (Penanaman Modal Asing) is a foreign-owned limited liability company registered in Indonesia. It's the legal structure that allows foreigners to own and operate businesses - including holding real estate assets - directly in Indonesia. Prime Equity Group operates as a fully licensed PT PMA.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Can foreigners own property in Bali?</button>
+                <div class="faq-answer">
+                    <p>Foreigners cannot hold freehold title (Hak Milik) personally. However, through a PMA structure, you can acquire land under Hak Pakai (Right to Use) or Hak Guna Bangunan (Right to Build) - both of which are legally recognized and renewable. Leasehold agreements are also common and offer long-term control of land, typically 25-30 years with extension options.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">What's the difference between freehold and leasehold?</button>
+                <div class="faq-answer">
+                    <p>Freehold (Hak Milik) is permanent ownership held by an Indonesian citizen or entity. When we say "freehold" in our listings, it means the land carries a freehold certificate - the strongest title available. Leasehold is a contractual right to use land for a fixed period (usually 25-30 years), renewable by agreement. Both are legitimate paths depending on your goals and timeline.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Why Medewi over South Bali?</button>
+                <div class="faq-answer">
+                    <p>South Bali (Canggu, Seminyak, Uluwatu) is largely built out. Land prices are 5-10x what they are in Medewi, and the congestion, overdevelopment, and zoning restrictions make new projects harder. Medewi offers ocean-front land at early-stage pricing with clear growth catalysts: new toll road access, government tourism development plans, and a wave of boutique hospitality moving west.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">How does the buying process work?</button>
+                <div class="faq-answer">
+                    <p>Once you've identified a property, we handle due diligence on title, zoning, and land status. From there, a notary (PPAT) facilitates the legal transfer. For PMA purchases, we coordinate with legal counsel to ensure the structure is compliant. The process typically takes 4-8 weeks from agreement to completion. We're hands-on through every step.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Do you work with investors outside of Indonesia?</button>
+                <div class="faq-answer">
+                    <p>Yes. Most of our conversations start remotely. We provide detailed information packs, satellite imagery, video walkthroughs, and can arrange site visits when you're ready. Whether you're in Singapore, Australia, Europe, or the US - we've worked with investors across every timezone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="contact-content">
@@ -755,6 +920,20 @@
         }
         function closeNav() {
             document.getElementById('navLinks').classList.remove('open');
+        }
+
+        // FAQ toggle
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+            // Open clicked (if it wasn't already open)
+            if (!isOpen) {
+                answer.classList.add('open');
+                btn.classList.add('active');
+            }
         }
 
         // Reveal on scroll  - lower threshold so content appears earlier
