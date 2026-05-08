@@ -352,13 +352,31 @@
             grid-template-columns: 1fr 380px;
         }
         .featured-hero {
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             order: 2;
             min-height: 100%;
         }
-        .featured-hero img {
+        .featured-hero-img {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            min-height: 220px;
+        }
+        .featured-hero-img img {
             width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .featured-hero-img:hover img { transform: scale(1.04); }
+        .featured-hero-img + .featured-hero-img {
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+        }
+        .hero-img-label {
+            position: absolute; bottom: 0.75rem; left: 0.75rem;
+            font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--cream); opacity: 0.85;
+            background: rgba(26, 46, 30, 0.55); backdrop-filter: blur(6px);
+            padding: 0.3rem 0.65rem;
         }
         .featured-hero::after {
             content: '';
@@ -734,8 +752,10 @@
             /* FEATURED LISTING */
             .featured { padding: 4rem 1.25rem; }
             .featured-card { grid-template-columns: 1fr; }
-            .featured-hero { height: 200px; order: 1; }
-            .featured-hero img { object-position: center 40%; }
+            .featured-hero { order: 1; flex-direction: row; height: 200px; }
+            .featured-hero-img { min-height: unset; flex: 1; }
+            .featured-hero-img + .featured-hero-img { border-top: none; border-left: 1px solid rgba(201, 168, 76, 0.2); }
+            .featured-hero-img img { object-position: center 40%; }
             .featured-body { padding: 1.5rem 1.25rem 2rem; order: 2; }
             .featured-body .featured-badge { font-size: 0.58rem; padding: 0.35rem 0.8rem; }
             .featured-body .featured-title { font-size: 1.7rem; }
@@ -927,13 +947,20 @@
         <h2 class="section-title reveal">Available <em>now</em>.</h2>
         <div class="featured-card reveal">
             <div class="featured-hero">
-                <img src="website photos/medewi-satellite.png" alt="Google Earth satellite view of Medewi Beach, Bali" loading="lazy">
+                <div class="featured-hero-img">
+                    <img src="website photos/medewi-satellite.png" alt="Google Earth satellite view of Medewi Beach, Bali" loading="lazy">
+                    <span class="hero-img-label">Satellite View</span>
+                </div>
+                <div class="featured-hero-img">
+                    <img src="https://images.unsplash.com/photo-1644780295337-452d26bc1f89?w=800&q=80" alt="Aerial view of Medewi surf break, Bali" loading="lazy">
+                    <span class="hero-img-label">Medewi Surf Break</span>
+                </div>
             </div>
             <div class="featured-body">
                 <div class="featured-badge">For Sale - Freehold</div>
                 <h3 class="featured-title">Ocean-View Land</h3>
                 <div class="featured-location">Medewi, Bali</div>
-                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south. Private road access is included and owned by this land title.</p>
+                <p>A rare freehold parcel just 200 meters from the ocean with direct views overlooking the famous Medewi surf break - Bali's longest left-hand wave. Positioned in one of the island's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south. Private road access is included and owned by this land title.</p>
 
                 <div class="listing-strategic">
                     <p><strong>Strategic land control:</strong> This parcel holds the only private road access to the hill it sits on - meaning whoever owns this land effectively holds the keys to all surrounding and uphill parcels. Any future development on this hillside depends on this title. A significant and rare advantage for any long-term investor.</p>
