@@ -272,6 +272,73 @@
             color: rgba(253, 252, 249, 0.65);
         }
 
+        /* ── PRICE BLOCK ─────────────────────────────── */
+        .listing-price-block {
+            background: rgba(201, 168, 76, 0.07);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2rem;
+        }
+        .price-row {
+            display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;
+        }
+        .price-currency-label {
+            font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: rgba(253, 252, 249, 0.45); margin-bottom: 0.3rem;
+        }
+        .price-idr-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem; font-weight: 600; color: var(--brass);
+            line-height: 1.1; margin-bottom: 0.3rem;
+        }
+        .price-per-are {
+            font-size: 0.7rem; letter-spacing: 0.08em;
+            color: rgba(253, 252, 249, 0.4);
+        }
+        .price-usd-block {
+            border-left: 1px solid rgba(201, 168, 76, 0.15);
+            padding-left: 2.5rem;
+        }
+        .price-usd-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem; font-weight: 400; color: var(--cream);
+            line-height: 1.1; margin-bottom: 0.4rem; font-style: italic;
+        }
+        .price-converter {
+            display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+        }
+        .price-converter-label {
+            font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(253, 252, 249, 0.35);
+        }
+        .price-converter input {
+            width: 80px; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            color: var(--cream); font-family: 'Jost', sans-serif;
+            font-size: 0.72rem; padding: 0.3rem 0.5rem; outline: none;
+        }
+        .price-converter input:focus { border-color: rgba(201, 168, 76, 0.5); }
+        .price-converter button {
+            background: none; border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--brass); font-family: 'Jost', sans-serif;
+            font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 0.3rem 0.7rem; cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .price-converter button:hover { background: var(--brass); color: var(--green); }
+        .listing-strategic {
+            background: rgba(61, 97, 66, 0.25);
+            border-left: 3px solid var(--brass);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .listing-strategic p {
+            font-size: 0.88rem !important;
+            color: rgba(253, 252, 249, 0.8) !important;
+            margin-bottom: 0 !important;
+            line-height: 1.65 !important;
+        }
+        .listing-strategic strong { color: var(--brass) !important; font-weight: 500; }
+
         /* ── FEATURED LISTING ────────────────────────── */
         .featured {
             padding: 7rem 4rem;
@@ -678,6 +745,11 @@
             .featured-detail { padding: 1rem 0; }
             .featured-detail .detail-val { font-size: 1.15rem; }
             .featured-detail .detail-label { font-size: 0.58rem; }
+            .listing-price-block { padding: 1.25rem; }
+            .price-row { flex-direction: column; gap: 1.25rem; }
+            .price-usd-block { border-left: none; border-top: 1px solid rgba(201, 168, 76, 0.15); padding-left: 0; padding-top: 1.25rem; }
+            .price-idr-amount, .price-usd-amount { font-size: 1.5rem; }
+            .listing-strategic { padding: 0.9rem 1rem; }
             .featured-actions { flex-direction: column; gap: 0.75rem; }
             .featured-cta-primary, .featured-cta-secondary {
                 font-size: 0.68rem; padding: 0.85rem 1.5rem;
@@ -798,13 +870,13 @@
         <div class="about-text">
             <div class="section-eyebrow reveal"><span>Who We Are</span></div>
             <h2 class="section-title reveal">Built on the ground,<br>not from <em>a distance</em>.</h2>
-            <p class="reveal">Prime Equity Group is a Bali-based real estate PMA founded by <strong>Nick and Riley</strong>  - two partners who have called the island home for close to a decade.</p>
-            <p class="reveal">We know this market because we live in it. Every acquisition we make is backed by local networks, direct relationships, and a deep understanding of where Bali is headed  - not where it's been.</p>
-            <p class="reveal">No brokers. No offshore guesswork. Just two people who understand the island, the opportunity, and the structure required to move on it.</p>
+            <p class="reveal">Prime Equity Group is a Bali-based real estate PMA founded by <strong>Nick</strong> - someone who has called the island home for close to a decade.</p>
+            <p class="reveal">I know this market because I live in it. Every acquisition is backed by local networks, direct relationships, and a deep understanding of where Bali is headed - not where it's been.</p>
+            <p class="reveal">No brokers. No offshore guesswork. Just one founder who understands the island, the opportunity, and the structure required to move on it.</p>
         </div>
         <div class="about-card reveal">
-            <blockquote>&lsquo;We didn&rsquo;t move to Bali to invest in real estate. We moved to Bali  - and investing in it was the obvious next step.&rsquo;</blockquote>
-            <div class="quote-attr">Nick &amp; Riley  - Founders</div>
+            <blockquote>&lsquo;I didn&rsquo;t move to Bali to invest in real estate. I moved to Bali - and investing in it was the obvious next step.&rsquo;</blockquote>
+            <div class="quote-attr">Nick - Founder</div>
         </div>
     </section>
 
@@ -861,7 +933,32 @@
                 <div class="featured-badge">For Sale - Freehold</div>
                 <h3 class="featured-title">Ocean-View Land</h3>
                 <div class="featured-location">Medewi, Bali</div>
-                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south.</p>
+                <p>A rare freehold parcel just 200 meters from the ocean with unobstructed views. Positioned in Medewi - one of Bali's fastest-emerging coastal corridors, known for its surf, its coastline, and its distance from the congestion of the south. Private road access is included and owned by this land title.</p>
+
+                <div class="listing-strategic">
+                    <p><strong>Strategic land control:</strong> This parcel holds the only private road access to the hill it sits on - meaning whoever owns this land effectively holds the keys to all surrounding and uphill parcels. Any future development on this hillside depends on this title. A significant and rare advantage for any long-term investor.</p>
+                </div>
+
+                <div class="listing-price-block">
+                    <div class="price-row">
+                        <div>
+                            <div class="price-currency-label">Total Asking Price (IDR)</div>
+                            <div class="price-idr-amount">Rp 8.000.000.000</div>
+                            <div class="price-per-are">Rp 250.000.000 per Are &times; 32 Are</div>
+                        </div>
+                        <div class="price-usd-block">
+                            <div class="price-currency-label">Approx. USD</div>
+                            <div class="price-usd-amount" id="usdPrice">~$487,800</div>
+                            <div class="price-converter">
+                                <span class="price-converter-label">Rate:</span>
+                                <input type="number" id="exchangeRate" value="16400" min="1">
+                                <span class="price-converter-label">IDR/USD</span>
+                                <button onclick="convertPrice()">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="featured-details">
                     <div class="featured-detail">
                         <span class="detail-val">3,200 sqm</span>
@@ -1032,6 +1129,13 @@
     </footer>
 
     <script>
+        // USD price converter
+        function convertPrice() {
+            const rate = parseFloat(document.getElementById('exchangeRate').value) || 16400;
+            const usd = Math.round(8000000000 / rate);
+            document.getElementById('usdPrice').textContent = '~$' + usd.toLocaleString('en-US');
+        }
+
         // Nav scroll
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
